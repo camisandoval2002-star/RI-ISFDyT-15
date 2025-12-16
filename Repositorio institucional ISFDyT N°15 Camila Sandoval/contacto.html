@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - ISFDyT N° 15</title>
+    <!-- Tipografía académica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ PALETA ACADÉMICA ============ */
+        :root {
+            /* Colores principales (rojo-terracota) */
+            --color-primario: #8b0000;        /* Rojo oscuro - principal */
+            --color-primario-claro: #a52a2a;   /* Rojo terracota - secundario */
+            --color-acento: #1a3a8f;          /* Azul marino - para acentos */
+            --color-fondo: #fffaf0;           /* Fondo marfil claro */
+            --color-texto: #3a2c1c;           /* Marrón oscuro para texto */
+            --color-blanco: #ffffff;
+            --color-gris-claro: #f5f1e8;
+            --color-gris-medio: #d4c9b8;
+            --color-gris-oscuro: #8a7c6c;
+            
+            /* Sombras y efectos */
+            --sombra-suave: 0 4px 12px rgba(139, 0, 0, 0.08);
+            --sombra-media: 0 6px 20px rgba(139, 0, 0, 0.12);
+            --sombra-fuerte: 0 8px 25px rgba(139, 0, 0, 0.15);
+            
+            /* Tipografía académica */
+            --fuente-titulos: 'Merriweather', serif;
+            --fuente-texto: 'Lato', sans-serif;
+        }
+        
+        /* ============ ESTILOS GENERALES ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--fuente-texto);
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--fuente-titulos);
+            font-weight: 400;
+            color: var(--color-primario);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        /* ============ ENCABEZADO ============ */
+        .encabezado {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .encabezado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+            z-index: 1;
+        }
+        
+        .encabezado h1 {
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            color: var(--color-blanco);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .encabezado h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: #ffd700;
+            border-radius: 2px;
+        }
+        
+        /* Logo institucional */
+        .logo-institucional {
+            max-height: 80px;
+            margin-bottom: 1rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-institucional:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 1.5rem auto 0;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            font-family: var(--fuente-titulos);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Indicador de página activa */
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: #ffd700;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 80%;
+        }
+        
+        /* ============ CONTENIDO PRINCIPAL ============ */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Título principal */
+        main h2 {
+            font-size: 2.2rem;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        main h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--color-primario);
+            border-radius: 2px;
+        }
+        
+        .descripcion-contacto {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-texto);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+        
+        /* ============ CONTENEDOR PRINCIPAL DE CONTACTO ============ */
+        .contenedor-contacto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* ============ FORMULARIO DE CONTACTO ============ */
+        .formulario-contacto {
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--sombra-media);
+            border-top: 5px solid var(--color-acento);
+            transition: all 0.4s ease;
+        }
+        
+        .formulario-contacto:hover {
+            box-shadow: var(--sombra-fuerte);
+            transform: translateY(-5px);
+        }
+        
+        .formulario-contacto h3 {
+            color: var(--color-primario);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .formulario-contacto h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-acento);
+        }
+        
+        .grupo-formulario {
+            margin-bottom: 1.5rem;
+        }
+        
+        .grupo-formulario label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primario);
+            font-family: var(--fuente-titulos);
+        }
+        
+        .grupo-formulario input,
+        .grupo-formulario select,
+        .grupo-formulario textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--color-gris-medio);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: var(--fuente-texto);
+            transition: all 0.3s ease;
+            background-color: var(--color-fondo);
+        }
+        
+        .grupo-formulario input:focus,
+        .grupo-formulario select:focus,
+        .grupo-formulario textarea:focus {
+            outline: none;
+            border-color: var(--color-acento);
+            box-shadow: 0 0 0 3px rgba(26, 58, 143, 0.1);
+            background-color: var(--color-blanco);
+        }
+        
+        .grupo-formulario textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-enviar {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: var(--fuente-titulos);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .btn-enviar:hover {
+            background: linear-gradient(135deg, var(--color-acento) 0%, #2a4ba8 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 58, 143, 0.3);
+            border-color: var(--color-blanco);
+        }
+        
+        .btn-enviar:active {
+            transform: translateY(-1px);
+        }
+        
+        /* ============ INFORMACIÓN DE CONTACTO ============ */
+        .informacion-contacto {
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--sombra-media);
+            border-top: 5px solid var(--color-primario);
+            transition: all 0.4s ease;
+        }
+        
+        .informacion-contacto:hover {
+            box-shadow: var(--sombra-fuerte);
+            transform: translateY(-5px);
+        }
+        
+        .informacion-contacto h3 {
+            color: var(--color-primario);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .informacion-contacto h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-primario);
+        }
+        
+        .item-contacto {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-gris-claro);
+        }
+        
+        .item-contacto:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .icono-contacto {
+            background-color: var(--color-fondo);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-acento);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .item-contacto:hover .icono-contacto {
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            transform: scale(1.1);
+        }
+        
+        .contenido-contacto h4 {
+            color: var(--color-primario);
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+        }
+        
+        .contenido-contacto p {
+            color: var(--color-texto);
+            line-height: 1.5;
+        }
+        
+        /* ============ REDES SOCIALES ============ */
+        .redes-sociales {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-gris-claro);
+        }
+        
+        .redes-sociales h4 {
+            color: var(--color-primario);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contenedor-redes {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .red-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.2rem;
+            background-color: var(--color-fondo);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+        
+        .red-social:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .red-social.facebook {
+            background-color: #1877f2;
+            color: white;
+        }
+        
+        .red-social.facebook:hover {
+            background-color: #166fe5;
+            border-color: white;
+        }
+        
+        .red-social.email {
+            background-color: var(--color-primario);
+            color: white;
+        }
+        
+        .red-social.email:hover {
+            background-color: var(--color-primario-claro);
+            border-color: white;
+        }
+        
+        .red-social .icono-red {
+            font-size: 1.2rem;
+        }
+        
+        /* ============ MAPA ============ */
+        .seccion-mapa {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--color-gris-claro);
+        }
+        
+        .seccion-mapa h3 {
+            font-size: 1.8rem;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .seccion-mapa h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--color-acento);
+        }
+        
+        .contenedor-mapa {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            border: 1px solid var(--color-gris-claro);
+            height: 400px;
+            position: relative;
+        }
+        
+        .mapa-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-gris-claro) 0%, var(--color-gris-medio) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gris-oscuro);
+            font-size: 1.2rem;
+        }
+        
+        .mapa-placeholder .icono-mapa {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-acento);
+        }
+        
+        /* ============ HORARIOS DE ATENCIÓN ============ */
+        .seccion-horarios {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: var(--sombra-suave);
+            border-left: 5px solid var(--color-primario);
+            transition: all 0.3s ease;
+        }
+        
+        .seccion-horarios:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .seccion-horarios h3 {
+            color: var(--color-primario);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .lista-horarios {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .lista-horarios li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--color-gris-claro);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .lista-horarios li:last-child {
+            border-bottom: none;
+        }
+        
+        .dia-semana {
+            font-weight: 600;
+            color: var(--color-primario);
+        }
+        
+        .horario {
+            background-color: var(--color-fondo);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--color-texto);
+        }
+        
+        /* ============ PIE DE PÁGINA ============ */
+        footer {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+        }
+        
+        footer > p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .info-contacto-footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ============ RESPONSIVIDAD ============ */
+        @media (max-width: 992px) {
+            .encabezado h1 {
+                font-size: 2rem;
+            }
+            
+            .contenedor-contacto {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .contenedor-mapa {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .encabezado {
+                padding: 1.5rem 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                width: 200px;
+                text-align: center;
+            }
+            
+            .formulario-contacto,
+            .informacion-contacto {
+                padding: 2rem;
+            }
+            
+            .contenedor-redes {
+                flex-direction: column;
+            }
+            
+            .red-social {
+                justify-content: center;
+            }
+            
+            .contenedor-mapa {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .encabezado h1 {
+                font-size: 1.8rem;
+            }
+            
+            main h2 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            .formulario-contacto,
+            .informacion-contacto {
+                padding: 1.5rem;
+            }
+            
+            .item-contacto {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .icono-contacto {
+                align-self: center;
+            }
+            
+            .contenedor-mapa {
+                height: 250px;
+            }
+        }
+        
+        /* ============ ANIMACIONES ============ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .formulario-contacto, .informacion-contacto, .seccion-horarios, .seccion-mapa {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .formulario-contacto { animation-delay: 0.1s; }
+        .informacion-contacto { animation-delay: 0.2s; }
+        .seccion-horarios { animation-delay: 0.3s; }
+        .seccion-mapa { animation-delay: 0.4s; }
+        
+        .icono-contacto:hover {
+            animation: pulse 1s ease infinite;
+        }
+        
+        /* ============ EFECTOS ESPECIALES ============ */
+        .formulario-contacto::before {
+            content: '✉️';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .informacion-contacto::before {
+            content: '📞';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="encabezado">
+                      <img src="Imagenes/Logo.png" alt="Logo ISFDyT N° 15" class="logo-institucional">
+                                         
+      <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html">Horarios</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Contáctanos</h2>
+        <p class="descripcion-contacto">
+            ¿Tienes alguna pregunta, sugerencia o necesitas asistencia? Estamos aquí para ayudarte. 
+            Puedes utilizar el formulario de contacto o comunicarte directamente con nosotros a través 
+            de los medios que se muestran a continuación.
+        </p>
+        
+        <div class="contenedor-contacto">
+            <!-- Formulario de contacto -->
+            <div class="formulario-contacto">
+                <h3>Envíanos un mensaje</h3>
+                <form id="formContacto">
+                    <div class="grupo-formulario">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="asunto">Asunto *</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Seleccione un asunto</option>
+                            <option value="consulta">Consulta general</option>
+                            <option value="materiales">Consulta sobre materiales</option>
+                            <option value="eventos">Información sobre eventos</option>
+                            <option value="sugerencia">Sugerencia o comentario</option>
+                            <option value="problema">Reportar un problema</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">
+                        <span>📨</span>
+                        <span>Enviar mensaje</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div class="informacion-contacto">
+                <h3>Información de contacto</h3>
+                
+                <div class="item-contacto">
+                    <div class="icono-contacto">📍</div>
+                    <div class="contenido-contacto">
+                        <h4>Dirección</h4>
+                        <p>ISFDyT N° 15<br>
+                        Bvard. Calixto Dellepiane 352 esq. I. Varela.</p>
+                    </div>
+                </div>
+                
+                <div class="item-contacto">
+                    <div class="icono-contacto">✉️</div>
+                    <div class="contenido-contacto">
+                        <h4>Correo electrónico</h4>
+                        <p>bpn4115@gmail.com</p>
+                    </div>
+                </div>
+                               
+                <!-- Redes sociales -->
+                <div class="redes-sociales">
+                    <h4>Síguenos en redes sociales</h4>
+                    <div class="contenedor-redes">
+                        <a href="https://www.facebook.com/people/Biblioteca-Pedag%C3%B3gica-Nacional-N%C2%BA-41-Alberto-Gauthier-BPN-41/100068344870801/?locale=es_LA" 
+                           target="_blank" 
+                           class="red-social facebook">
+                            <span class="icono-red">📘</span>
+                            <span>Facebook</span>
+                        </a>
+                        
+                        <a href="mailto:bpn4115@gmail.com" 
+                           class="red-social email">
+                            <span class="icono-red">✉️</span>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mapa de ubicación -->
+        <div class="seccion-mapa">
+            <h3>¿Cómo llegar?</h3>
+             <div class="contenedor-mapa">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.458183197653!2d-58.9618507!3d-34.1638844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bb72368c2c78bb%3A0x41ae9a344c43b79!2sBlvd.%20Calixto%20B.%20Dellepiane%20352%2C%20Campana%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+            width="100%" 
+            height="100%" 
+            style="border:0; border-radius: 8px;" 
+            allowfullscreen="" 
+            loading="lazy"
+            title="Ubicación del ISFDyT N° 15 - Campana, Buenos Aires">
+        </iframe>
+    </div>
+          
+       
+    <footer>
+        <p>&copy; 2025 Repositorio Institucional - ISFDyT N° 15</p>
+        <p>Biblioteca Digital - Contacto</p>
+        
+        <div class="info-contacto-footer">
+            <div>📍 Bvard. Calixto Dellepiane 352 esq. I. Varela.</div>
+            <div>✉️ biblioteca@isfdyt15.edu.ar</div>
+            <div>
+                <a href="https://www.facebook.com/people/Biblioteca-Pedag%C3%B3gica-Nacional-N%C2%BA-41-Alberto-Gauthier-BPN-41/100068344870801/?locale=es_LA" 
+                   target="_blank" 
+                   style="color: white; text-decoration: underline;">
+                    📘 Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Validación del formulario de contacto
+        document.getElementById('formContacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener valores del formulario
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const asunto = document.getElementById('asunto').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+            
+            // Validaciones
+            if (!nombre || !email || !asunto || !mensaje) {
+                alert('Por favor, completa todos los campos obligatorios (*).');
+                return;
+            }
+            
+            // Validación de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, ingresa una dirección de correo electrónico válida.');
+                document.getElementById('email').focus();
+                return;
+            }
+            
+            // Validación de longitud del mensaje
+            if (mensaje.length < 10) {
+                alert('Por favor, escribe un mensaje más detallado (mínimo 10 caracteres).');
+                document.getElementById('mensaje').focus();
+                return;
+            }
+            
+            // Simulación de envío (en un caso real, aquí se enviaría a un servidor)
+            const btnEnviar = this.querySelector('.btn-enviar');
+            const textoOriginal = btnEnviar.innerHTML;
+            
+            // Mostrar estado de envío
+            btnEnviar.innerHTML = '<span>⏳</span><span>Enviando...</span>';
+            btnEnviar.disabled = true;
+            
+            // Simular envío
+            setTimeout(() => {
+                alert(`¡Gracias ${nombre}! Tu mensaje ha sido enviado correctamente.\n\nTe responderemos a: ${email}\nAsunto: ${this.querySelector('#asunto option:checked').textContent}`);
+                
+                // Restaurar botón
+                btnEnviar.innerHTML = textoOriginal;
+                btnEnviar.disabled = false;
+                
+                // Limpiar formulario
+                this.reset();
+                
+                // Mostrar mensaje de confirmación en consola
+                console.log('Formulario enviado:');
+                console.log(`- Nombre: ${nombre}`);
+                console.log(`- Email: ${email}`);
+                console.log(`- Asunto: ${asunto}`);
+                console.log(`- Mensaje: ${mensaje.substring(0, 50)}...`);
+            })})

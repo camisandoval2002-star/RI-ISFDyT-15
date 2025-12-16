@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Realizados - ISFDyT N° 15</title>
+    <!-- Tipografía académica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ PALETA ACADÉMICA ============ */
+        :root {
+            /* Colores principales (rojo-terracota) */
+            --color-primario: #8b0000;        /* Rojo oscuro - principal */
+            --color-primario-claro: #a52a2a;   /* Rojo terracota - secundario */
+            --color-acento: #1a3a8f;          /* Azul marino - para acentos */
+            --color-fondo: #fffaf0;           /* Fondo marfil claro */
+            --color-texto: #3a2c1c;           /* Marrón oscuro para texto */
+            --color-blanco: #ffffff;
+            --color-gris-claro: #f5f1e8;
+            --color-gris-medio: #d4c9b8;
+            --color-gris-oscuro: #8a7c6c;
+            
+            /* Sombras y efectos */
+            --sombra-suave: 0 4px 12px rgba(139, 0, 0, 0.08);
+            --sombra-media: 0 6px 20px rgba(139, 0, 0, 0.12);
+            --sombra-fuerte: 0 8px 25px rgba(139, 0, 0, 0.15);
+            
+            /* Tipografía académica */
+            --fuente-titulos: 'Merriweather', serif;
+            --fuente-texto: 'Lato', sans-serif;
+        }
+        
+        /* ============ ESTILOS GENERALES ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--fuente-texto);
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--fuente-titulos);
+            font-weight: 400;
+            color: var(--color-primario);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        /* ============ ENCABEZADO ============ */
+        .encabezado {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .encabezado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+            z-index: 1;
+        }
+        
+        .encabezado h1 {
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            color: var(--color-blanco);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .encabezado h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: #ffd700;
+            border-radius: 2px;
+        }
+        
+        /* Logo institucional */
+        .logo-institucional {
+            max-height: 80px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-institucional:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 1.5rem auto 0;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            font-family: var(--fuente-titulos);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Indicador de página activa */
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: #ffd700;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 80%;
+        }
+        
+        /* ============ IMAGEN PRINCIPAL ============ */
+        .imagen-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-fuerte);
+            border: 10px solid var(--color-blanco);
+            position: relative;
+        }
+        
+        .imagen-biblioteca-fija {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            filter: sepia(0.15) contrast(1.05);
+        }
+        
+        .imagen-biblioteca-fija:hover {
+            transform: scale(1.02);
+        }
+        
+        /* ============ CONTENIDO PRINCIPAL ============ */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        main h2 {
+            font-size: 2.2rem;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        main h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--color-primario);
+            border-radius: 2px;
+        }
+        
+        /* ============ INTRODUCCIÓN ============ */
+        .introduccion-eventos {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+            border-left: 5px solid var(--color-acento);
+        }
+        
+        .introduccion-eventos p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--color-texto);
+        }
+        
+        .anio-actual {
+            display: inline-block;
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        
+        /* ============ TARJETAS DE EVENTOS ============ */
+        .contenedor-eventos {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .tarjeta {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            border: 1px solid var(--color-gris-claro);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-fuerte);
+            border-color: var(--color-primario);
+        }
+        
+        .tarjeta-imagen {
+            flex: 1;
+            min-width: 300px;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .tarjeta-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tarjeta:hover .tarjeta-imagen img {
+            transform: scale(1.05);
+        }
+        
+        .tarjeta-contenido {
+            flex: 2;
+            min-width: 300px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .tarjeta h3 {
+            color: var(--color-primario);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .tarjeta .fecha {
+            display: inline-block;
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tarjeta p {
+            color: var(--color-texto);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .tarjeta .ponentes {
+            color: var(--color-gris-oscuro);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--color-acento);
+            padding-left: 1rem;
+        }
+        
+        .boton-evento {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            align-self: flex-start;
+        }
+        
+        .boton-evento:hover {
+            background: linear-gradient(135deg, var(--color-acento) 0%, #2a4ba8 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(26, 58, 143, 0.3);
+            border-color: var(--color-blanco);
+        }
+        
+        /* Badge para eventos pasados */
+        .badge-pasado {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--color-gris-oscuro);
+            color: var(--color-blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        /* Etiqueta de mes */
+        .etiqueta-mes {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        /* Estadísticas del evento */
+        .estadisticas-evento {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .estadistica-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-fondo);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* ============ CALENDARIO ANUAL ============ */
+        .seccion-calendario {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .seccion-calendario h3 {
+            color: var(--color-primario);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .calendario {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .calendario-item {
+            background-color: var(--color-fondo);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border-left: 4px solid var(--color-primario);
+            transition: all 0.3s ease;
+        }
+        
+        .calendario-item:hover {
+            background-color: var(--color-gris-claro);
+            transform: translateX(5px);
+        }
+        
+        .calendario-fecha {
+            color: var(--color-acento);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .calendario-evento {
+            color: var(--color-texto);
+            font-weight: 500;
+        }
+        
+        /* ============ GALERÍA DE EVENTOS ============ */
+        .seccion-galeria {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--color-gris-claro);
+        }
+        
+        .seccion-galeria h3 {
+            font-size: 1.8rem;
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .seccion-galeria h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-acento);
+        }
+        
+        .galeria-imagenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .galeria-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.4s ease;
+            height: 220px;
+        }
+        
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-fuerte);
+        }
+        
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(139, 0, 0, 0.8), transparent);
+            color: var(--color-blanco);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+        
+        .galeria-overlay p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        /* ============ PRÓXIMOS EVENTOS ============ */
+        .seccion-proximos {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 4rem;
+            box-shadow: var(--sombra-media);
+            border-top: 5px solid var(--color-acento);
+        }
+        
+        .seccion-proximos h3 {
+            color: var(--color-primario);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .mensaje-proximos {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--color-fondo);
+            border-radius: 8px;
+            border: 2px dashed var(--color-gris-medio);
+        }
+        
+        .mensaje-proximos p {
+            font-size: 1.1rem;
+            color: var(--color-texto);
+            margin-bottom: 1rem;
+        }
+        
+        /* ============ PIE DE PÁGINA ============ */
+        footer {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+        }
+        
+        footer > p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .info-contacto {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ============ RESPONSIVIDAD ============ */
+        @media (max-width: 992px) {
+            .encabezado h1 {
+                font-size: 2rem;
+            }
+            
+            .tarjeta {
+                flex-direction: column;
+            }
+            
+            .tarjeta-imagen {
+                min-width: 100%;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .encabezado {
+                padding: 1.5rem 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                width: 200px;
+                text-align: center;
+            }
+            
+            .imagen-biblioteca-fija {
+                height: 250px;
+            }
+            
+            .galeria-imagenes {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .calendario {
+                grid-template-columns: 1fr;
+            }
+            
+            .estadisticas-evento {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .encabezado h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tarjeta-contenido {
+                padding: 1.5rem;
+            }
+            
+            .tarjeta h3 {
+                font-size: 1.4rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        /* ============ ANIMACIONES ============ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tarjeta, .galeria-item, .calendario-item {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .tarjeta:nth-child(2) { animation-delay: 0.1s; }
+        .tarjeta:nth-child(3) { animation-delay: 0.2s; }
+        .tarjeta:nth-child(4) { animation-delay: 0.3s; }
+        .tarjeta:nth-child(5) { animation-delay: 0.4s; }
+        .tarjeta:nth-child(6) { animation-delay: 0.5s; }
+        
+        /* ============ EFECTOS ESPECIALES ============ */
+        .evento-reciente {
+            position: relative;
+            border: 2px solid var(--color-acento) !important;
+        }
+        
+        .evento-reciente::before {
+            content: '⭐ Reciente';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <header class="encabezado">
+        <img src="Imagenes/Logo.png" alt="Logo ISFDyT N° 15" class="logo-institucional">
+        <h1>Eventos Realizados 2025</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="eventos.html" class="active">Eventos</a></li>
+                <li><a href="horarios.html">Horarios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="imagen-container">
+        <img src="Imagenes/foto5.jpg" alt="Actividades culturales en la biblioteca - Libros en Adopción 2025" class="imagen-biblioteca-fija">
+    </div>
+
+    <main>
+        <div class="introduccion-eventos">
+            <span class="anio-actual">Año 2025</span>
+            <h2>Eventos Realizados</h2>
+            <p>Revive los eventos y actividades culturales realizados durante el año 2025 en el ISFDyT N° 15. 
+               Cada actividad refleja nuestro compromiso con la formación docente, la promoción de la lectura 
+               y el fortalecimiento de nuestra comunidad educativa.</p>
+            <p style="font-size: 1rem; color: var(--color-gris-oscuro); margin-top: 1rem;">
+                <strong>Fecha actual:</strong> 4 de Diciembre de 2025
+            </p>
+        </div>
+        
+        <!-- Eventos realizados en orden cronológico inverso (más recientes primero) -->
+        <div class="contenedor-eventos">
+            <!-- Evento más reciente -->
+            <div class="tarjeta evento-reciente">
+                <div class="badge-pasado">Realizado</div>
+                <div class="etiqueta-mes">Agosto</div>
+                <div class="tarjeta-imagen">
+                    <img src="Imagenes/e7.jpg" alt="Encuentro con la BNM - Agosto 2025">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>Encuentro con la Biblioteca Nacional de Maestras y Maestros</h3>
+                    <span class="fecha">22 de Agosto 2025 | 13:30 HS</span>
+                    <p class="ponentes">Disertantes: Melisa Ballerini y Julia Nordenstrom</p>
+                    <p>Encuentro especial con la Biblioteca Nacional de Maestras y Maestros para conocer su trabajo y recursos. 
+                       Se abordaron temas sobre acceso a materiales educativos, formación docente y herramientas digitales para la enseñanza.</p>
+                    <div class="estadisticas-evento">
+                        <div class="estadistica-item">
+                            <span>👥</span>
+                            <span>85 asistentes</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span>⏱️</span>
+                            <span>2 horas de duración</span>
+                        </div>
+                    </div>
+                    <a href="#" class="boton-evento">
+                        <span>📹</span>
+                        <span>Ver grabación del evento</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="tarjeta">
+                <div class="badge-pasado">Realizado</div>
+                <div class="etiqueta-mes">Agosto</div>
+                <div class="tarjeta-imagen">
+                    <img src="Imagenes/e1.jpg" alt="Día del Lector - Homenaje a Borges">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>Día del Lector - Homenaje a Jorge Luis Borges</h3>
+                    <span class="fecha">24 de Agosto 2025 | Todo el día</span>
+                    <p>En conmemoración al natalicio de Jorge Luis Borges, celebramos la pasión por la lectura con diversas actividades:</p>
+                    <ul style="margin: 1rem 0 1.5rem 1.5rem; color: var(--color-texto);">
+                        <li>Lectura de fragmentos de sus obras más representativas</li>
+                        <li>Exposición especial de libros de y sobre Borges</li>
+                        <li>Charla magistral: "Borges y la educación argentina"</li>
+                        <li>Maratón de lectura en la biblioteca</li>
+                    </ul>
+                    <div class="estadisticas-evento">
+                        <div class="estadistica-item">
+                            <span>📚</span>
+                            <span>45 libros exhibidos</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span>🎤</span>
+                            <span>3 charlas especiales</span>
+                        </div>
+                    </div>
+                    <a href="#" class="boton-evento">
+                        <span>📖</span>
+                        <span>Ver galería fotográfica</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Evento 3: El Revés de la Trama -->
+            <div class="tarjeta">
+                <div class="badge-pasado">Realizado</div>
+                <div class="etiqueta-mes">Junio</div>
+                <div class="tarjeta-imagen">
+                    <img src="Imagenes/elrevesdelatrama.jpg" alt="Evento El Revés de la Trama - Junio 2025">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>El Revés de la Trama</h3>
+                    <span class="fecha">23 al 30 de Junio 2025</span>
+                    <p>Exposición y ciclo de charlas sobre técnicas narrativas y escritura creativa. 
+                       Un evento dedicado a explorar los diferentes aspectos de la creación literaria, 
+                       el análisis de textos y la formación de nuevos escritores.</p>
+                    <p class="ponentes">Participaron: Escritores locales, docentes de literatura y estudiantes avanzados de la carrera de Letras</p>
+                    <div class="estadisticas-evento">
+                        <div class="estadistica-item">
+                            <span>🗓️</span>
+                            <span>8 días de duración</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span>🎯</span>
+                            <span>6 talleres realizados</span>
+                        </div>
+                    </div>
+                    <a href="#" class="boton-evento">
+                        <span>📚</span>
+                        <span>Ver materiales del evento</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Evento 4: Muestra Autores de la Casa -->
+            <div class="tarjeta">
+                <div class="badge-pasado">Realizado</div>
+                <div class="etiqueta-mes">Junio-Julio</div>
+                <div class="tarjeta-imagen">
+                    <img src="Imagenes/muestraautoresdelacasa.jpg" alt="Muestra Autores de la Casa 2025">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>Muestra "Autores de la Casa"</h3>
+                    <span class="fecha">19 de Junio al 5 de Julio 2025</span>
+                    <p>Exposición de obras literarias y académicas creadas por docentes y alumnos del ISFDyT N° 15. 
+                       Una muestra que refleja el talento y la producción intelectual de nuestra comunidad educativa, 
+                       con géneros que van desde la investigación académica hasta la poesía y narrativa.</p>
+                    <p class="ponentes">Participaron: 28 autores entre docentes y alumnos de diversas carreras</p>
+                    <div class="estadisticas-evento">
+                        <div class="estadistica-item">
+                            <span>📖</span>
+                            <span>42 obras expuestas</span>
+                        </div>
+                        <div class="estadistica-item">
+                            <span>👥</span>
+                            <span>28 autores participantes</span>
+                        </div>
+                    </div>
+                    <a href="#" class="boton-evento">
+                        <span>📖</span>
+                        <span>Ver catálogo de obras</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Evento 5: Libros en Adopción -->
+            <div class="tarjeta">
+                <div class="badge-pasado">Realizado</div>
+                <div class="etiqueta-mes">Abril</div>
+                <div class="tarjeta-imagen">
+                    <img src="Imagenes/librosenadopcion.jpg" alt="Jornada Libros en Adopción - Abril 2025">
+                </div>
+                <div class="tarjeta-contenido">
+                    <h3>Jornada "Libros en Adopción"</h3>
+                    <span class="fecha">12 de Abril 2025</span>
+                    <p>Una jornada especial donde la comunidad educativa y el público en general pudo "adoptar" libros donados. 
+                       El objetivo fue fomentar la lectura, promover la circulación de libros y darle una nueva vida a ejemplares 
+                       que ya no eran utilizados por sus dueños originales.</p>
+                    <p class="ponentes">Organizado por: Departamento de Biblioteca y Centro de Estudiantes del ISFDyT N° 15</p>
+                    <div class="estadisticas-evento" style="margin-top: 1rem;">
+                        <div class="estadistica-item" style="background-color: rgba(26, 58, 143, 0.1);">
+                            <span>📊</span>
+                            <span><strong>Resultados:</strong> 312 libros adoptados</span>
+                        </div>
+                        <div class="estadistica-item" style="background-color: rgba(26, 58, 143, 0.1);">
+                            <span>⏱️</span>
+                            <span><strong>Duración:</strong> 6 horas continuas</span>
+                        </div>
+                    </div>
+                    <a href="#" class="boton-evento" style="margin-top: 1rem;">
+                        <span>❤️</span>
+                        <span>Ver testimonios de adopción</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendario de eventos -->
+        <div class="seccion-calendario">
+            <h3>Calendario de Eventos 2025</h3>
+            <div class="calendario">
+                <div class="calendario-item">
+                    <div class="calendario-fecha">22 Agosto</div>
+                    <div class="calendario-evento">Charla BNM</div>
+                </div>
+                <div class="calendario-item">
+                    <div class="calendario-fecha">24 Agosto</div>
+                    <div class="calendario-evento">Día del Lector</div>
+                </div>
+                <div class="calendario-item">
+                    <div class="calendario-fecha">5 Septiembre</div>
+                    <div class="calendario-evento">Feria del Libro</div>
+                </div>
+                <div class="calendario-item">
+                    <div class="calendario-fecha">15 Septiembre</div>
+                    <div class="calendario-evento">Taller Investigación</div>
+                </div>
+                <div class="calendario-item">
+                    <div class="calendario-fecha">12 Octubre</div>
+                    <div class="calendario-evento">Semana de la Educación</div>
+                </div>
+                <div class="calendario-item">
+                    <div class="calendario-fecha">25 Noviembre</div>
+                    <div class="calendario-evento">Jornadas Académicas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galería de eventos pasados -->
+        <div class="seccion-galeria">
+            <h3>Galería de Eventos Pasados</h3>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--color-gris-oscuro);">Revive algunos de nuestros eventos más destacados</p>
+            
+            <div class="galeria-imagenes">
+                <div class="galeria-item">
+                    <img src="Imagenes/e4.jpg" alt="Feria del libro al aire libre">
+                    <div class="galeria-overlay">
+                        <p>Feria del libro - Primavera 2024</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="Imagenes/e5.jpg" alt="Taller creativo para docentes">
+                    <div class="galeria-overlay">
+                        <p>Taller de materiales didácticos</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="Imagenes/foto1.jpg" alt="Estudiantes en actividad de lectura">
+                    <div class="galeria-overlay">
+                        <p>Maratón de lectura 2024</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="Imagenes/e7.jpg" alt="Conferencia académica">
+                    <div class="galeria-overlay">
+                        <p>Conferencia sobre innovación educativa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Repositorio Institucional - ISFDyT N° 15</p>
+        <p>Agenda Cultural y Académica - Biblioteca Digital</p>
+        
+        <div class="info-contacto">
+            <div>Para más información sobre eventos:</div>
+                    <div class="contenedor-redes">
+                        <a href="https://www.facebook.com/people/Biblioteca-Pedag%C3%B3gica-Nacional-N%C2%BA-41-Alberto-Gauthier-BPN-41/100068344870801/?locale=es_LA" 
+                           target="_blank" 
+                           class="red-social facebook">
+                            <span class="icono-red">📘</span>
+                            <span>Facebook</span>
+                        </a></div>
+        </div>
+    </footer>
+
+    <script>
+        // Animación para elementos al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            // Observar elementos para animaciones
+            document.querySelectorAll('.tarjeta, .galeria-item, .calendario-item').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Añadir estilos para la animación de visibilidad
+            const style = document.createElement('style');
+            style.textContent = `
+                .tarjeta, .galeria-item, .calendario-item {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .tarjeta.visible, .galeria-item.visible, .calendario-item.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Efecto para enlaces de Zoom */
+                .boton-evento[href="#"] {
+                    cursor: not-allowed;
+                    opacity: 0.7;
+                }
+                
+                .boton-evento[href="#"]:hover {
+                    transform: none !important;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Simular carga de eventos (podrías reemplazar con datos reales)
+            console.log('Página de eventos cargada - ISFDyT N° 15');
+            
+            // Añadir funcionalidad a los botones (ejemplo)
+            document.querySelectorAll('.boton-evento').forEach(boton => {
+                boton.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('Este enlace es un ejemplo. En una implementación real, aquí habría un enlace válido.');
+                    }
+                });
+            });
+        });
+        
+        // Mostrar fecha actual en consola
+        const hoy = new Date();
+        const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        console.log(`Fecha actual: ${hoy.toLocaleDateString('es-ES', opciones)}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios de Atención - ISFDyT N° 15</title>
+    <!-- Tipografía académica -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============ PALETA ACADÉMICA ============ */
+        :root {
+            /* Colores principales (rojo-terracota) */
+            --color-primario: #8b0000;        /* Rojo oscuro - principal */
+            --color-primario-claro: #a52a2a;   /* Rojo terracota - secundario */
+            --color-acento: #1a3a8f;          /* Azul marino - para acentos */
+            --color-fondo: #fffaf0;           /* Fondo marfil claro */
+            --color-texto: #3a2c1c;           /* Marrón oscuro para texto */
+            --color-blanco: #ffffff;
+            --color-gris-claro: #f5f1e8;
+            --color-gris-medio: #d4c9b8;
+            --color-gris-oscuro: #8a7c6c;
+            
+            /* Sombras y efectos */
+            --sombra-suave: 0 4px 12px rgba(139, 0, 0, 0.08);
+            --sombra-media: 0 6px 20px rgba(139, 0, 0, 0.12);
+            --sombra-fuerte: 0 8px 25px rgba(139, 0, 0, 0.15);
+            
+            /* Tipografía académica */
+            --fuente-titulos: 'Merriweather', serif;
+            --fuente-texto: 'Lato', sans-serif;
+        }
+        
+        /* ============ ESTILOS GENERALES ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--fuente-texto);
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--fuente-titulos);
+            font-weight: 400;
+            color: var(--color-primario);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        /* ============ ENCABEZADO ============ */
+        .encabezado {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .encabezado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+            z-index: 1;
+        }
+        
+        .encabezado h1 {
+            font-family: var(--fuente-titulos);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            color: var(--color-blanco);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .encabezado h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: #ffd700;
+            border-radius: 2px;
+        }
+        
+        /* Logo institucional */
+        .logo-institucional {
+            max-height: 80px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-institucional:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 1.5rem auto 0;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            font-family: var(--fuente-titulos);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Indicador de página activa */
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: #ffd700;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #ffd700;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 80%;
+        }
+        
+        /* ============ CONTENIDO PRINCIPAL ============ */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Tarjeta principal */
+        .tarjeta {
+            background-color: var(--color-blanco);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: var(--sombra-media);
+            border-top: 5px solid var(--color-acento);
+            transition: all 0.4s ease;
+        }
+        
+        .tarjeta:hover {
+            box-shadow: var(--sombra-fuerte);
+            transform: translateY(-5px);
+        }
+        
+        .contenido-principal {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        
+        /* Sección izquierda - Información */
+        .informacion-horarios {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .informacion-horarios h2 {
+            font-size: 2rem;
+            color: var(--color-primario);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .informacion-horarios h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-acento);
+            border-radius: 2px;
+        }
+        
+        .informacion-horarios > p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--color-texto);
+            margin-bottom: 2rem;
+        }
+        
+        /* Tabla de horarios */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            box-shadow: var(--sombra-suave);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-primario-claro) 100%);
+            color: var(--color-blanco);
+        }
+        
+        th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            font-family: var(--fuente-titulos);
+            font-size: 1.1rem;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid var(--color-gris-claro);
+            transition: all 0.3s ease;
+        }
+        
+        tbody tr:hover {
+            background-color: var(--color-fondo);
+            transform: scale(1.01);
+        }
+        
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        td {
+            padding: 1rem 1.2rem;
+            color: var(--color-texto);
+        }
+        
+        td:first-child {
+            font-weight: 600;
+            color: var(--color-primario);
+        }
+        
+        /* Horario destacado (hoy) */
+        .hoy {
+            background-color: rgba(26, 58, 143, 0.1) !important;
+            border-left: 4px solid var(--color-acento);
+        }
+        
+        .hoy td:first-child {
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .hoy td:first-child::after {
+            content: 'Hoy';
+            background-color: var(--color-acento);
+            color: var(--color-blanco);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        /* Sección derecha - Imagen */
+        .imagen-horarios {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .imagen-horarios img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: var(--sombra-media);
+            transition: all 0.5s ease;
+            filter: sepia(0.1) contrast(1.05);
+        }
+        
+        .imagen-horarios img:hover {
+            transform: scale(1.02);
+            box-shadow: var(--sombra-fuerte);
+        }
+        
+        /* ============ SECCIONES ADICIONALES ============ */
+        .secciones-adicionales {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .seccion {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.3s ease;
+            border-top: 3px solid var(--color-primario);
+        }
+        
+        .seccion:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+        }
+        
+        .seccion h3 {
+            color: var(--color-primario);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .seccion ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .seccion li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-gris-claro);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .seccion li:last-child {
+            border-bottom: none;
+        }
+        
+        .seccion li::before {
+            content: '•';
+            color: var(--color-acento);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* ============ INDICADOR DE ESTADO ============ */
+        .estado-apertura {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: var(--sombra-suave);
+            border-left: 5px solid;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .estado-apertura.abierto {
+            border-left-color: #28a745;
+        }
+        
+        .estado-apertura.cerrado {
+            border-left-color: #dc3545;
+        }
+        
+        .estado-apertura:hover {
+            transform: translateX(5px);
+        }
+        
+        .estado-icono {
+            font-size: 2rem;
+        }
+        
+        .estado-abierto .estado-icono {
+            color: #28a745;
+        }
+        
+        .estado-cerrado .estado-icono {
+            color: #dc3545;
+        }
+        
+        .estado-texto h4 {
+            margin-bottom: 0.3rem;
+            color: var(--color-texto);
+        }
+        
+        .estado-texto p {
+            color: var(--color-gris-oscuro);
+            font-size: 0.9rem;
+        }
+        
+        /* ============ PIE DE PÁGINA ============ */
+        footer {
+            background-color: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-acento) 0%, #ffd700 50%, var(--color-acento) 100%);
+        }
+        
+        footer > p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .info-contacto {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ============ RESPONSIVIDAD ============ */
+        @media (max-width: 992px) {
+            .encabezado h1 {
+                font-size: 2rem;
+            }
+            
+            .contenido-principal {
+                flex-direction: column;
+            }
+            
+            .imagen-horarios img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .encabezado {
+                padding: 1.5rem 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            nav a {
+                display: block;
+                width: 200px;
+                text-align: center;
+            }
+            
+            .tarjeta {
+                padding: 2rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.8rem;
+            }
+            
+            .secciones-adicionales {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .encabezado h1 {
+                font-size: 1.8rem;
+            }
+            
+            .informacion-horarios h2 {
+                font-size: 1.6rem;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            .tarjeta {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* ============ ANIMACIONES ============ */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .tarjeta, .seccion, .estado-apertura {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .estado-apertura.abierto .estado-icono {
+            animation: pulse 2s ease infinite;
+        }
+        
+        /* ============ EFECTOS ESPECIALES ============ */
+        .tarjeta::before {
+            content: '📅';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        /* Destacar horarios especiales */
+        .horario-especial {
+            position: relative;
+        }
+        
+        .horario-especial td:last-child {
+            font-weight: 600;
+            color: var(--color-acento);
+        }
+        
+        .horario-especial::before {
+            content: '⭐';
+            position: absolute;
+            left: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="encabezado">
+        <img src="Imagenes/Logo.png" alt="Logo ISFDyT N° 15" class="logo-institucional">
+        <h1>Horarios de Atención</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="horarios.html" class="active">Horarios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="tarjeta">
+            <div class="contenido-principal">
+                <!-- Sección izquierda: Información y tabla -->
+                <div class="informacion-horarios">
+                    <h2>¿Cuándo visitarnos?</h2>
+                    <p>Nuestras puertas están abiertas para estudiantes, docentes y la comunidad educativa en general. Te ofrecemos un espacio de estudio, consulta y reunión académica.</p>
+                    
+                    <!-- Indicador de estado actual -->
+                    <div class="estado-apertura abierto" id="estadoActual">
+                        <div class="estado-icono">🟢</div>
+                        <div class="estado-texto">
+                            <h4>Ahora estamos: <span id="estadoTexto">Abierto</span></h4>
+                            <p id="horarioActual">Horario de hoy: 8:00 - 22:00</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem; color: var(--color-primario);">Horario Semanal</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Día</th>
+                                <th>Horario de Atención</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="lunes" class="hoy">
+                                <td>Lunes</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                            <tr id="martes">
+                                <td>Martes</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                            <tr id="miercoles">
+                                <td>Miércoles</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                            <tr id="jueves">
+                                <td>Jueves</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                            <tr id="viernes">
+                                <td>Viernes</td>
+                                <td>8:00 - 22:00</td>
+                            </tr>
+                            <tr id="sabado">
+                                <td>Sábado</td>
+                                <td>10:00 - 14:00</td>
+                            </tr>
+                            <tr id="domingo">
+                                <td>Domingo</td>
+                                <td>Cerrado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-gris-oscuro);">
+                        <p>⏰ <strong>Nota:</strong> Feriados cerrado, los horarios pueden variar en períodos de vacaciones.</p>
+                    </div>
+                </div>
+                
+                <!-- Sección derecha: Imagen -->
+                <div class="imagen-horarios">
+                    <img src="Imagenes/tomadeapuntes.jpg" alt="Estudiante consultando materiales en la biblioteca">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Secciones adicionales -->
+        <div class="secciones-adicionales">
+            <div class="seccion">
+                <h3>📍 Servicios Disponibles</h3>
+                <ul>
+                    <li>Consulta en sala de lectura</li>
+                    <li>Préstamo de materiales</li>
+                    <li>Acceso a computadoras</li>
+                    <li>Wi-Fi gratuito</li>
+                    <li>Asesoría bibliográfica</li>
+                </ul>
+            </div>
+            
+            <div class="seccion">
+                <h3>📞 Contacto Rápido</h3>
+                <ul>
+                    <li><strong>Email:</strong> bpn4115@gmail.com</li>
+                     <li>
+    <strong>Redes Sociales:</strong>
+    <a href="https://www.facebook.com/people/Biblioteca-Pedag%C3%B3gica-Nacional-N%C2%BA-41-Alberto-Gauthier-BPN-41/100068344870801/?locale=es_LA" 
+       target="_blank" 
+       class="red-social facebook">
+        <span class="icono-red-social">📘</span>
+        <span>Síguenos en Facebook</span>
+    </a>
+</li>
+                    <li><strong>Dirección:</strong> Bulevar Calixto Dellepiane 352 esq. I. Varela.- Campana
+</li>
+                </ul>
+            </div>
+            
+            
+            <div class="seccion">
+                <h3>⚠️ Excepciones</h3>
+                <ul>
+                    <li>Cerrado días feriados nacionales</li>
+                    <li>Horario reducido en verano (Enero-Febrero)</li>
+                    <li>Horario especial durante exámenes</li>
+                    <li>Consultar por cierres por mantenimiento</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Repositorio Institucional - ISFDyT N° 15</p>
+        <p>Biblioteca Digital - Horarios de Atención</p>
+        
+        <div class="info-contacto">
+            <div>Para consultas sobre horarios:</div>
+            <div>📧 bpn4115@gmail.com</div>
+        </div>
+    </footer>
+
+    <script>
+        // Función para determinar el día actual y resaltarlo
+        function actualizarDiaActual() {
+            const dias = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
+            const hoy = new Date();
+            const diaActual = dias[hoy.getDay()];
+            
+            // Remover clase 'hoy' de todos los días
+            dias.forEach(dia => {
+                const fila = document.getElementById(dia);
+                if (fila) {
+                    fila.classList.remove('hoy');
+                }
+            });
+            
+            // Añadir clase 'hoy' al día actual
+            const filaHoy = document.getElementById(diaActual);
+            if (filaHoy) {
+                filaHoy.classList.add('hoy');
+            }
+            
+            return diaActual;
+        }
+        
+        // Función para verificar si estamos abiertos ahora
+        function verificarEstadoApertura() {
+            const hoy = new Date();
+            const horaActual = hoy.getHours();
+            const minutosActual = hoy.getMinutes();
+            const diaSemana = hoy.getDay(); // 0 = Domingo, 1 = Lunes, etc.
+            
+            // Definir horarios por día
+            const horarios = {
+                0: { abierto: false }, // Domingo
+                1: { inicio: 8, fin: 22, abierto: true }, // Lunes
+                2: { 
+                    turnos: [
+                        { inicio: 8, fin: 12 },
+                        { inicio: 18, fin: 22 }
+                    ],
+                    abierto: true 
+                }, // Martes
+                3: { inicio: 8, fin: 21, abierto: true }, // Miércoles
+                4: { inicio: 8, fin: 22, abierto: true }, // Jueves
+                5: { inicio: 8, fin: 18, abierto: true }, // Viernes
+                6: { inicio: 10, fin: 14, abierto: true }  // Sábado
+            };
+            
+            const horarioHoy = horarios[diaSemana];
+            
+            if (!horarioHoy.abierto) {
+                return { estado: 'cerrado', mensaje: 'Cerrado hoy' };
+            }
+            
+            // Para días con un solo turno
+            if (horarioHoy.inicio !== undefined) {
+                const abierto = horaActual >= horarioHoy.inicio && horaActual < horarioHoy.fin;
+                return {
+                    estado: abierto ? 'abierto' : 'cerrado',
+                    mensaje: abierto ? 
+                        `Abierto hasta las ${horarioHoy.fin}:00` : 
+                        `Cerrado. Abre a las ${horarioHoy.inicio}:00`
+                };
+            }
+            
+            // Para días con múltiples turnos (martes)
+            if (horarioHoy.turnos) {
+                let enAlgunTurno = false;
+                let mensaje = '';
+                
+                for (const turno of horarioHoy.turnos) {
+                    if (horaActual >= turno.inicio && horaActual < turno.fin) {
+                        enAlgunTurno = true;
+                        mensaje = `Abierto hasta las ${turno.fin}:00`;
+                        break;
+                    }
+                }
+                
+                if (!enAlgunTurno) {
+                    // Encontrar el próximo turno
+                    const turnosOrdenados = [...horarioHoy.turnos].sort((a, b) => a.inicio - b.inicio);
+                    let proximoTurno = null;
+                    
+                    for (const turno of turnosOrdenados) {
+                        if (horaActual < turno.inicio) {
+                            proximoTurno = turno;
+                            break;
+                        }
+                    }
+                    
+                    if (proximoTurno) {
+                        mensaje = `Cerrado. Próximo turno: ${proximoTurno.inicio}:00 - ${proximoTurno.fin}:00`;
+                    } else {
+                        mensaje = 'Cerrado por hoy';
+                    }
+                }
+                
+                return {
+                    estado: enAlgunTurno ? 'abierto' : 'cerrado',
+                    mensaje: mensaje
+                };
+            }
+            
+            return { estado: 'cerrado', mensaje: 'Horario no disponible' };
+        }
+        
+        // Función para actualizar la interfaz con el estado actual
+        function actualizarInterfaz() {
+            const diaActual = actualizarDiaActual();
+            const estado = verificarEstadoApertura();
+            
+            // Actualizar indicador de estado
+            const estadoElemento = document.getElementById('estadoActual');
+            const estadoTexto = document.getElementById('estadoTexto');
+            const horarioActual = document.getElementById('horarioActual');
+            
+            if (estadoElemento && estadoTexto && horarioActual) {
+                estadoElemento.className = `estado-apertura ${estado.estado}`;
+                estadoTexto.textContent = estado.estado === 'abierto' ? 'Abierto' : 'Cerrado';
+                horarioActual.textContent = estado.mensaje;
+                
+                // Actualizar icono
+                const icono = estadoElemento.querySelector('.estado-icono');
+                if (icono) {
+                    icono.textContent = estado.estado === 'abierto' ? '🟢' : '🔴';
+                }
+            }
+            
+            // Actualizar horario de hoy en la tabla
+            const filaHoy = document.getElementById(diaActual);
+            if (filaHoy) {
+                const celdaHorario = filaHoy.querySelector('td:last-child');
+                if (celdaHorario && estado.estado === 'abierto') {
+                    celdaHorario.innerHTML += ' <span style="color: #28a745; font-size: 0.8em;">● Ahora abierto</span>';
+                }
+            }
+        }
+        
+        // Inicializar cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarInterfaz();
+            
+            // Actualizar cada minuto
+            setInterval(actualizarInterfaz, 60000);
+            
+            // Añadir animaciones a elementos
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            // Observar elementos para animaciones
+            document.querySelectorAll('.seccion, .tarjeta').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Añadir estilos para la animación de visibilidad
+            const style = document.createElement('style');
+            style.textContent = `
+                .seccion, .tarjeta {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .seccion.visible, .tarjeta.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Efecto para filas de la tabla */
+                tbody tr {
+                    transition: all 0.3s ease;
+                }
+                
+                tbody tr:hover {
+                    background-color: rgba(139, 0, 0, 0.05) !important;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Mostrar información de carga
+            console.log('Página de horarios cargada - ISFDyT N° 15');
+            console.log('Estado actualizado automáticamente');
+        });
+        
+        // Función para formatear fecha
+        function formatearFecha(fecha) {
+            const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return fecha.toLocaleDateString('es-ES', opciones);
+        }
+    </script>
+</body>
+</html>
